@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Application {
 	
+	Scanner scanner = new Scanner(System.in);
 	MedicineStore medicineStore = new MedicineStore();
 	UserInterface userInterface = new UserInterface();
 	//Medicine medicine;
@@ -44,7 +45,7 @@ public class Application {
 		 */
 	}
 
-	public void handleUserSelection(int option) {
+	private void handleUserSelection(int option) {
 
 		switch (option) {
 		case 1:
@@ -54,29 +55,33 @@ public class Application {
 			removeMedicine();
 			break;
 		case 3:
-		//	updateMedicine();
-			Medicine medicine = new Medicine();
-			System.out.println("Enter the medicine name that you want to update: ");
-			Scanner scanner = new Scanner(System.in);
-			userInterface.update(medicine);
+			System.out.println("enter the medicine name want to update");
+			String medicineName = scanner.nextLine();
+			Medicine medicine = medicineStore.getMedicine(medicineName);
+			userInterface.updateMedicine(medicine);
 			break;
 		case 4:
 			//List medicineList = medicineStore.getMedicineList();
-			//userInterface.print(medicineStore.getMedicineList());
-			userInterface.print(medicineStore.getMedicineList());
+			userInterface.print( medicineStore.getMedicineList());
 			break;
 		case 5:
-
+			List allopathyMedicineList = medicineStore.getMedicineList();
+			userInterface.printAllAllopathy(allopathyMedicineList);
 			break;
 		case 6:
-
+			List homeopathyMedicineList = medicineStore.getMedicineList();
+			userInterface.printAllHomeopathy(homeopathyMedicineList);
 			break;
 		case 7:
-
+			List aiurvedicMedicineList = medicineStore.getMedicineList();
+			userInterface.printAllAyurvedic(aiurvedicMedicineList);
+		case 8:
+			List yunamiMedicineList = medicineStore.getMedicineList();
+			userInterface.printAllYunani(yunamiMedicineList);
 			break;
-
 		default:
-
+			break;
+				
 		}
 	}
 
@@ -126,12 +131,31 @@ public class Application {
 		medicineStore.add(zafran);
 	}
 	
-	void removeMedicine() {
+	public void removeMedicine() {
 		
-		Scanner scanner = new Scanner(System.in);
+		//Scanner scanner = new Scanner(System.in);
 		System.out.println("Enter the medicine name want to remove");
 		String medicineName = scanner.nextLine();
 		Medicine medicine = medicineStore.getMedicine(medicineName);
 		medicineStore.remove(medicine);
 	}
+	
+	/*void updateMedicine() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Enter the medicine name");
+		String medicineName = scanner.nextLine();
+		Medicine medicine = medicineStore.getMedicine(medicineName);
+		System.out.println("\n");
+		
+		System.out.println("Before Updating the details  "+medicine);
+		System.out.println("\n");
+		
+		userInterface.update(medicine);
+		
+		System.out.print("\n");
+		System.out.println("After Updating the details  "+medicine);
+		
+		System.out.print("\n");
+		System.out.println("Succesfully Updated");
+	}*/
 }

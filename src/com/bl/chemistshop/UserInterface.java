@@ -1,12 +1,17 @@
 //UI Layer or View Layer
 package com.bl.chemistshop;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.bl.chemistshop.Medicine.Type;
+
 public class UserInterface {
 	
+	Scanner scanner = new Scanner(System.in);
 	public void printAllHomeopathy(List<Medicine> list) {
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i).type == Medicine.Type.HOMEOPATHY) {
@@ -60,51 +65,37 @@ public class UserInterface {
 		return option;
 	}
 	
-	public void update(Medicine medicine) {
-		MedicineStore medicineStore = new MedicineStore();
-		Scanner scanner1 = new Scanner(System.in);
-		System.out.println("Whiche Details You want to update");
-		System.out.println("[1] CompanyName \n [2] Type \n [3] MfgDate \n [4]ExpDate \n [5] Name \n [6] Composition");
-		System.out.println("Please Choose any one");
-		int op = scanner1.nextInt();
-		
-		switch (op) {
+	public void updateMedicine(Medicine medicine) {
+		Scanner scannerstr = new Scanner(System.in);
+		System.out.println("[1] changename \n[2] change company name \n[3] change mfg date \n"+ 
+				"[4] change Expiry date \n[5] change compositons \n[6] change type ");
+		int choose = scanner.nextInt();
+		switch (choose) {
 		case 1:
-			
-			System.out.println("Enter the updating Companyname");
-			Scanner scanner = new Scanner(System.in);
+			System.out.println("enter tne name of medicine");
+			medicine.name = scanner.nextLine();
+			break;
+		case 2:
+			System.out.println("enter the company name");
 			medicine.companyName = scanner.nextLine();
-			 medicineStore.getMedicine(medicine.companyName);
 			break;
-		case 2 :
-			
-			System.out.println("Enter the updating Type");
-			//medicine.type = scanner1.next();
-			break;
-			
 		case 3:
-			System.out.println("Enter the updating Mfgdate dd/mm/yyyy");
-			String date = scanner1.next();
-			medicine.mfgDate = new Date(date);
+			System.out.println("enter the mfg date in mm/dd/yyyy formate");
+			String tempMfgDate = scanner.next();
+			medicine.mfgDate =  new Date(tempMfgDate);	
 			break;
-			
 		case 4:
-			System.out.println("Enter the Updating Exp-date dd/mm/yyyy");
-			String exdate = scanner1.next();
-			medicine.expDate = new Date(exdate);
+			System.out.println("enter the expiry date in mm/dd/yyyy formate");
+			String tempExpDate = scanner.next();
+			medicine.expDate = new Date(tempExpDate); 
 			break;
-			
 		case 5:
-			System.out.println("Enter the medicine name");
-			medicine.name = scanner1.next();
-			break;
-			
-		case 6:
-			System.out.println("Enter the composition");
-			medicine.composition =  new String[3];
+			System.out.println("enter the composition");
+			medicine.composition = scannerstr.nextLine().split(" ");
 			break;
 		default:
-			System.out.println("Your medicine details is uptodate");
+			System.out.println("enter the type of medicine");
+			String tempType = scanner.nextLine();
 		}
 	}
 }
