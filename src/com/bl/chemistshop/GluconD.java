@@ -10,6 +10,7 @@ public class GluconD extends Medicine {
 		composition[2] = "I";
 		composition[3] = "Y";
 		composition[4] = "X";
+		name = "gluconD";
 	}
 
 }

@@ -7,6 +7,7 @@ public class Zafran extends Medicine {
 		composition = new String[2];
 		composition[0] = "Zafran(Indian Gooseberry)";
 		composition[1] = "Crocus Sativus Linn";
+		name = "zafran";
 	}
 
 }

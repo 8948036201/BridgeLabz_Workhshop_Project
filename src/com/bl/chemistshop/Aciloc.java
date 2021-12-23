@@ -8,6 +8,7 @@ public class Aciloc extends Medicine {
 		composition[0] = "A";
 		composition[1] = "B";
 		composition[2] = "C";
+		name = "aciloc";
 	}
 
 }

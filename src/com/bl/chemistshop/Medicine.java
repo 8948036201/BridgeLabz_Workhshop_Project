@@ -12,10 +12,11 @@ public class Medicine {
 	Date mfgDate;
 	Date expDate;
 	String[] composition;
+	String name;
 	
 	@Override
 	public String toString() {
 		return "Medicine [companyName=" + companyName + ", type=" + type + ", mfgDate=" + mfgDate + ", expDate="
-				+ expDate + ", composition=" + Arrays.toString(composition) + "]";
+				+ expDate + ", composition=" + Arrays.toString(composition) + ", name=" + name + "]";
 	}
 }

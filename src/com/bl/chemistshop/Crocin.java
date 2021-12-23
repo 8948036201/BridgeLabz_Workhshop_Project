@@ -10,5 +10,6 @@ public class Crocin extends Medicine {
 		composition[0] = "Paracetamol";
 		composition[1] = "caffeine";
 		composition[2] = "Sodium Methyl Paraben";
+		name = "crocin";
 	}
 }

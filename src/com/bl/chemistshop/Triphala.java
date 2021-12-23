@@ -8,6 +8,7 @@ public class Triphala extends Medicine {
 		composition[0] = "Amla(Indian Gooseberry)";
 		composition[1] = "Bibhitaki(Terminalia bellirica)";
 		composition[2] = "Haritaki(Terminalia chebula)";
+		name = "triphala";
 	}
 
 }

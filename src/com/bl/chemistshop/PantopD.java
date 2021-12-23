@@ -7,6 +7,7 @@ public class PantopD extends Medicine {
 		composition = new String[2];
 		composition[0] = "J";
 		composition[1] = "K";
+		name = "pantopD";
 	}
 
 }

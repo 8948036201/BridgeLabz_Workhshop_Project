@@ -9,6 +9,7 @@ public class Disprin extends Medicine {
 		composition[1] = "E";
 		composition[2] = "F";
 		composition[3] = "Z";
+		name = "disprin";
 	}
 
 }

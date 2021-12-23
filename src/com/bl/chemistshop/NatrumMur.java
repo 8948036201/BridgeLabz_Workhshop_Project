@@ -8,6 +8,7 @@ public class NatrumMur extends Medicine {
 		composition[0] = "Sea Salt";
 		composition[1] = "Sodium Chloride";
 		composition[2] = "MUR Six X";
+		name = "natrumMur";
 	}
 
 }
